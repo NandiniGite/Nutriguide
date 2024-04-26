@@ -1,0 +1,147 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ingredient Predictor</title>
+</head>
+<body>
+    <h1>Ingredient Predictor</h1>
+    <form action="/predict" method="post">
+        <label for="ingredient">Enter an ingredient:</label>
+        <input type="text" id="ingredient" name="ingredient" required>
+        <button type="submit">Predict</button>
+    </form>
+    {% if prediction_natural %}
+    <h2>Prediction:</h2>
+    <p>Natural/Artificial: {{ prediction_natural }}</p>
+    <p>Processed/Unprocessed: {{ prediction_processed }}</p>
+    {% endif %}
+
+    <div>
+        <h1>Upload an Image</h1>
+        <form action="/upload" method="post" enctype="multipart/form-data">
+            <input type="file" name="file">
+            <input type="submit" value="Upload">
+    </div>
+</body>
+</html> -->
+
+
+ 
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>NutriGuide</title>
+  <meta content="" name="description">
+  <meta content="" name="keywords">
+
+  <!-- Favicons -->
+  <link href="static/img/favicon.png" rel="icon">
+  <link href="static/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,600;1,700&family=Amatic+SC:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Inter:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="/static/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="/static/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="/static/vendor/aos/aos.css" rel="stylesheet">
+  <link href="/static/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+  <link href="/static/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+
+  <!-- Template Main CSS File -->
+  <link href="/static/css/main.css" rel="stylesheet">
+
+ 
+</head>
+
+<body>
+
+  <!-- ======= Header ======= -->
+  <header id="header" class="header fixed-top d-flex align-items-center">
+    <div class="container d-flex align-items-center justify-content-between">
+
+      <a href="index.html" class="logo d-flex align-items-center me-auto me-lg-0">
+        <!-- Uncomment the line below if you also wish to use an image logo -->
+        <!-- <img src="static/img/logo.png" alt=""> -->
+        <h1>NutriGuide<span>.</span></h1>
+      </a>
+
+      <nav id="navbar" class="navbar">
+        <ul>
+          <li><a href="#hero">Home</a></li>
+         
+         
+        </ul>
+      </nav><!-- .navbar -->
+
+      <a class="btn-book-a-table" href="#upload-image">Upload Image</a>
+      <i class="mobile-nav-toggle mobile-nav-show bi bi-list"></i>
+      <i class="mobile-nav-toggle mobile-nav-hide d-none bi bi-x"></i>
+
+    </div>
+  </header><!-- End Header -->
+
+  <!-- ======= Hero Section ======= -->
+  <section id="hero" class="hero d-flex align-items-center section-bg">
+    <div class="container">
+      <div class="row justify-content-between gy-5">
+        <div class="col-lg-5 order-2 order-lg-1 d-flex flex-column justify-content-center align-items-center align-items-lg-start text-center text-lg-start">
+          <h2 data-aos="fade-up">Enjoy Your Healthy<br>Delicious Food</h2>
+          <p data-aos="fade-up" data-aos-delay="100">Sed autem laudantium dolores. Voluptatem itaque ea consequatur eveniet. Eum quas beatae cumque eum quaerat.</p>
+          <div class="d-flex" data-aos="fade-up" data-aos-delay="200">
+            <a href="#uplad-image" class="btn-book-a-table">Upload Image</a>
+          </div>
+        </div>
+        <div class="col-lg-5 order-1 order-lg-2 text-center text-lg-start">
+          <img src="https://ideausher.com/wp-content/uploads/2019/12/diet-and-nutrition-app-1.png" class="img-fluid" alt="" data-aos="zoom-out" data-aos-delay="300">
+        </div>
+      </div>
+    </div>
+  </section><!-- End Hero Section -->
+
+  <main id="main">
+   
+    
+      <section id="upload-image" class="upload-image">
+        <div class="container" data-aos="fade-up">
+          <h1>Upload an Image</h1>
+          <form action="/upload" method="post" enctype="multipart/form-data">
+            <input type="file" id="image-file" name="file">
+            <input type="submit" value="Upload" class="btn-upload">
+          </form>
+        </div>
+      </section>
+    
+
+  </main><!-- End #main -->
+
+  
+
+
+  <a href="#" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+  <div id="preloader"></div>
+
+  <!-- Vendor JS Files -->
+  <script src="static/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="static/vendor/aos/aos.js"></script>
+  <script src="static/vendor/glightbox/js/glightbox.min.js"></script>
+  <script src="static/vendor/purecounter/purecounter_vanilla.js"></script>
+  <script src="static/vendor/swiper/swiper-bundle.min.js"></script>
+  <script src="static/vendor/php-email-form/validate.js"></script>
+
+  <!-- Template Main JS File -->
+  <script src="static/js/main.js"></script>
+
+</body>
+
+</html> 

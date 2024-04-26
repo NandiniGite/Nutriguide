@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ingredient Classification Result</title>
+    <style>
+        table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+        th, td {
+            border: 1px solid black;
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+<body>
+    <h1>Ingredient Classification Result</h1>
+
+    <h2>Matched Ingredients</h2>
+    
+    {% if predicted_ingredients %}
+        <table>
+            <thead>
+                <tr>
+                    <th>Ingredient</th>
+                    <th>Natural/Artificial</th>
+                    <th>Processed/Unprocessed</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for ingredient, natural, processed in predicted_ingredients %}
+                    <tr>
+                        <td>{{ ingredient }}</td>
+                        <td>{{ natural }}</td>
+                        <td>{{ processed }}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    {% endif %}
+
+    <h2>Newly Found Ingredients</h2>
+
+    {% if ingredients_info %}
+        <table>
+            <thead>
+                <tr>
+                    <th>Food Item</th>
+                    <th>Measure</th>
+                    <th>Energy (kcal)</th>
+                    <th>Energy (kJ)</th>
+                    <th>Protein (g)</th>
+                    <th>Protien (g)</th>
+                    <th>Total Carbohydrate (g)</th>
+                    <th>Total Dietary Fibre (g)</th>
+                    <th>Total Fiber (g)</th>
+                    <th>Fat (g)</th>
+                    <th>Cholesterol (mg)</th>
+                    <th>Cholestrol (mg)</th>
+                    <th>Calcium (mg)</th>
+                    <th>Iron (mg)</th>
+                    <th>Sodium (mg)</th>
+                    <th>Potassium (mg)</th>
+                    <th>Phosphorus (mg)</th>
+                    <th>Riboflavin (mg)</th>
+                    <th>Niacin (NE)</th>
+                    <th>Folate (DFE)</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for ingredient_info in ingredients_info %}
+                    {% if ingredient_info.info %}
+                        <tr>
+                            <td>{{ ingredient_info.ingredient }}</td>
+                            {% for value in ingredient_info.info[:19] %} <!-- Limit to 20 columns -->
+                                <td>{{ value }}</td>
+                            {% endfor %}
+                        </tr>
+                    {% endif %}
+                {% endfor %}
+            </tbody>
+        </table>
+    {% endif %}
+</body>
+</html> 
+
+
+
+
