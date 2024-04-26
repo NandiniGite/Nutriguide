@@ -177,5 +177,3 @@ def upload():
     # Render the result template with the predicted ingredients and scraped information
     return render_template('result.html', predicted_ingredients=predicted_ingredients, ingredients_info=ingredients_info)
 
-if __name__ == '__main__':
-    app.run(debug=True)
